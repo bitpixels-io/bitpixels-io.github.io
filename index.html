@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,22 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BitPixels | Bitpixels-io is the First Rentable NFT Pixel Project on Blockchain!</title>
     <style>
-        /* Reset margin and padding */
-        body, html {
+        /* Reset margin, padding, and set width and height to fill screen */
+        html, body {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* Prevent scrolling */
+            width: 100%;
+            overflow: hidden; /* Prevent any scrolling */
         }
 
-        /* Make the image cover the entire screen */
+        /* Ensure the image fills the screen and is responsive */
         img {
             position: absolute;
             top: 0;
             left: 0;
+            right: 0; /* Ensures the image extends to the right edge */
+            bottom: 0; /* Ensures the image extends to the bottom edge */
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Preserve aspect ratio while covering entire viewport */
+            object-fit: cover; /* Covers the viewport while maintaining aspect ratio */
+        }
+
+        /* Adjustments for smaller screens if necessary */
+        @media (max-width: 600px) {
+            img {
+                object-fit: cover; /* Change this to 'contain' if you want to see the whole image without cropping */
+            }
         }
     </style>
 </head>
