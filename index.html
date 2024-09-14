@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,45 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BitPixels | Bitpixels-io is the First Rentable NFT Pixel Project on Blockchain!</title>
     <style>
-        /* Reset margin, padding, and set width and height to fill screen */
+        /* Reset margin, padding */
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden; /* Prevent any scrolling */
-            position: relative; /* Ensures the positioning context is the viewport */
+            height: 100%;  /* Full height but not full width */
+            overflow-x: scroll;  /* Enable horizontal scrolling */
+            overflow-y: hidden;  /* Disable vertical scrolling */
+        }
+
+        /* Container for image that allows it to be wider than the screen */
+        .image-container {
+            width: 200vw;  /* Example: double the width of the viewport */
+            height: 100vh;
+            position: relative;
         }
 
         /* Full-screen background setup */
         .background-image {
-            position: fixed; /* Fixed position to cover all viewable area */
+            position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100vw; /* 100% of the viewport width */
-            height: 100vh; /* 100% of the viewport height */
-            object-fit: cover; /* Covers the viewport while maintaining aspect ratio */
-            z-index: -1; /* Keeps the image behind any added content */
-        }
-
-        /* Responsive adjustments */
-        @media (orientation: portrait) {
-            .background-image {
-                min-height: 100vh; /* Minimum height to cover the full viewport height */
-            }
-        }
-
-        @media (orientation: landscape) {
-            .background-image {
-                min-width: 100vw; /* Minimum width to cover the full viewport width */
-            }
+            width: 200vw;  /* Same as container width */
+            height: 100vh;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
-    <img class="background-image" src="photo.png" alt="BitPixels | Bitpixels-io is the First Rentable NFT Pixel Project on Blockchain!">
+    <div class="image-container">
+        <img class="background-image" src="photo.png" alt="BitPixels | Bitpixels-io is the First Rentable NFT Pixel Project on Blockchain!">
+    </div>
 </body>
 </html>
 
