@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +11,38 @@
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;  /* Full height but not full width */
-            overflow-x: scroll;  /* Enable horizontal scrolling */
-            overflow-y: hidden;  /* Disable vertical scrolling */
+            overflow-x: hidden;  /* Prevent horizontal overflow on desktop */
+            overflow-y: hidden;  /* Prevent vertical scrolling */
+            height: 100%;        /* Ensure body takes full viewport height */
         }
 
-        /* Container for image that allows it to be wider than the screen */
-        .image-container {
-            width: 200vw;  /* Example: double the width of the viewport */
-            height: 100vh;
-            position: relative;
-        }
-
-        /* Full-screen background setup */
+        /* Fullscreen image setup */
         .background-image {
-            position: absolute;
+            position: fixed; /* Use fixed to cover the viewport */
             top: 0;
             left: 0;
-            width: 200vw;  /* Same as container width */
-            height: 100vh;
-            object-fit: cover;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the viewport while maintaining aspect ratio */
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 600px) {  /* Adjust this breakpoint as necessary */
+            html, body {
+                overflow-x: auto;  /* Enable horizontal scrolling on mobile */
+            }
+            .background-image {
+                min-width: 200vw;  /* Set a minimum width to allow horizontal scrolling */
+                height: auto;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img class="background-image" src="photo.png" alt="BitPixels | Bitpixels-io is the First Rentable NFT Pixel Project on Blockchain!">
-    </div>
+    <img class="background-image" src="photo.png" alt="BitPixels | Bitpixels-io is the First Rentable NFT Pixel Project on Blockchain!">
 </body>
 </html>
+
 
