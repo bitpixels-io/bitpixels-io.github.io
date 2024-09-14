@@ -12,33 +12,43 @@
             margin: 0;
             padding: 0;
             height: 100%;   /* Full height */
-            overflow-x: hidden; /* Prevent horizontal overflow on desktop */
-            overflow-y: hidden; /* Prevent vertical scrolling */
+            overflow: hidden; /* Hide overflows */
+            position: relative; /* Required for absolute positioning of the image */
         }
 
-        /* Ensure the container allows for horizontal scrolling on mobile */
+        /* Image container that adapts based on viewport */
         .image-container {
-            position: relative;  /* Relative positioning for natural flow */
-            width: 100vw;        /* Initial width to 100% of the viewport width */
-            height: 100vh;       /* Match viewport height */
-            overflow-x: auto;    /* Enable horizontal scrolling */
-            overflow-y: hidden;  /* Disable vertical scrolling */
-        }
-
-        /* Fullscreen image setup */
-        .background-image {
-            position: absolute; /* Absolute positioning within the container */
+            position: fixed; /* Fixed to cover the whole screen */
             top: 0;
             left: 0;
-            min-width: 200vw;   /* Minimum width to ensure it can be scrollable */
-            height: 100vh;      /* Full height of the viewport */
-            object-fit: cover;  /* Maintain aspect ratio while covering the needed area */
+            right: 0;
+            bottom: 0;
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Hide overflow by default */
         }
 
-        /* Adjustments for mobile viewports */
+        /* Styling for the background image */
+        .background-image {
+            position: absolute; /* Absolute positioning inside the container */
+            top: 0;
+            left: 0;
+            width: 100%; /* Full container width */
+            height: 100%; /* Full container height */
+            object-fit: cover; /* Cover the area nicely */
+        }
+
+        /* Media query for mobile devices to allow horizontal scrolling */
         @media (max-width: 600px) {
             .image-container {
-                width: 200vw;  /* Make sure container width is greater than viewport to enable scrolling */
+                width: auto; /* Auto width based on the image */
+                min-width: 100vw; /* Minimum width is the viewport width */
+                overflow-x: auto; /* Enable horizontal scrolling */
+            }
+            .background-image {
+                min-width: 200vw; /* Extend the width to ensure scrolling */
+                height: auto; /* Adjust height automatically */
+                object-fit: unset; /* Reset object-fit for better control */
             }
         }
     </style>
@@ -49,6 +59,7 @@
     </div>
 </body>
 </html>
+
 
 
 
